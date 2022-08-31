@@ -108,9 +108,10 @@ try
                                     }
                                 }
                                 catch (Exception ex)
-                                {
-                    Console.WriteLine("Number to Big");//ex.ToString());
-                                }
+                {
+                    Console.WriteLine("Number to Big cannot be done");
+                    Console.WriteLine("");//ex.ToString());
+                }
                                 for (int i = 0; i < linesOfText.Length; i++)
                                 {
                                     Console.WriteLine(linesOfText[i]);
@@ -206,7 +207,9 @@ try
                 }
                 catch (Exception ex)
                 {
-                    Console.WriteLine("Number to Big"); //(ex.ToString());
+
+                    Console.WriteLine("Number to Big cannot be done");
+                    Console.WriteLine("");//ex.ToString());
                 }
                 break;
                     case ("L"):
