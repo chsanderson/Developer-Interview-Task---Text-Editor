@@ -16,7 +16,8 @@ try
         Console.WriteLine("Enter 'I' or 'L' to view lines of text");
         Console.WriteLine("Enter 'A' or 'a' along with some text to add to the lines of text");
         Console.WriteLine("Enter 'i' or 'I' with a line number and the text you want to appear in that line and it will appear in that position above the text previously on  that line");
-        Console.WriteLine("Enter 'd' or 'I' with a line number and when submitted the line will be deleted");
+        Console.WriteLine("Enter 'd' or 'D' with a line number and when submitted the line will be deleted");
+        Console.WriteLine("Enter 'R' or 'r' with the first line number and then a space and the next line number and to flip them.");
 
         Console.WriteLine("Waiting for Response:");
         userResponse = Console.ReadLine();
@@ -311,14 +312,123 @@ try
                 linesOfText = temporaryArray;
                 break;
 
-            case ('R'):
-                if(userResponse.Length > 1)
+            case ("R"):
+                if (userResponse.Length > 1)
                 {
-                    
+                    int firstnumberTemp = 0;
+                    int secondnumberTemp = 0;
+                    int trimNumber = 0;
+                    try
+                    {
+                        for (int i = 1; i < userResponse.Length - 1; i++)
+                        {
+                            int firstnumber = 0;
+                            try
+                            {
+                                firstnumber = Int32.Parse(userResponse.Substring(1, i));
+                            }
+                            catch (Exception ex)
+                            {
+                                firstnumber = Int32.Parse(userResponse.Substring(1, i + 1));
+                            }
+
+                            if (firstnumber <= linesOfText.Length)
+                            {
+                                firstnumberTemp = firstnumber;
+                            }
+                            else
+                            {
+                                trimNumber = i;
+                                i = userResponse.Length;
+                            }
+                        }
+                        for (int i = 2; i < userResponse.Length; i++)
+                        {
+                            int secondnumber = 0;
+                            try
+                            {
+                                secondnumber = Int32.Parse(userResponse.Substring(i));
+                            }
+                            catch (Exception ex)
+                            {
+                                secondnumber = Int32.Parse(userResponse.Substring(i + 1));
+                            }
+                            if (secondnumber <= linesOfText.Length)
+                            {
+                                secondnumberTemp = secondnumber;
+                                i = userResponse.Length;
+                            }
+                        }
+                        string replacementOne = linesOfText[firstnumberTemp - 1];
+                        string replacementTwo = linesOfText[secondnumberTemp - 1];
+                        linesOfText[secondnumberTemp - 1] = replacementOne;
+                        linesOfText[firstnumberTemp - 1] = replacementTwo;
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine(ex.ToString());
+                    }
                 }
-                else if()
                 break;
-                    default:
+            case ("r"):
+                if (userResponse.Length > 1)
+                {
+                    int firstnumberTemp = 0;
+                    int secondnumberTemp = 0;
+                    int trimNumber = 0;
+                    try
+                    {
+                        for (int i = 1; i < userResponse.Length - 1 ; i++)
+                        {
+                            int firstnumber = 0;
+                            try
+                            {
+                                firstnumber = Int32.Parse(userResponse.Substring(1, i));
+                            }
+                            catch(Exception ex)
+                            {
+                                firstnumber = Int32.Parse(userResponse.Substring(1, i+1));
+                            }
+
+                            if(firstnumber <= linesOfText.Length)
+                            {
+                                firstnumberTemp = firstnumber;
+                            }
+                            else
+                            {
+                                trimNumber = i;
+                                i = userResponse.Length;
+                            }
+                        }
+                        for (int i = 2; i < userResponse.Length; i++)
+                        {
+                            int secondnumber = 0;
+                            try
+                            {
+                                secondnumber = Int32.Parse(userResponse.Substring(i));
+                            }
+                            catch (Exception ex)
+                            {
+                                secondnumber = Int32.Parse(userResponse.Substring(i +1));
+                            }
+                            if (secondnumber <= linesOfText.Length)
+                            {
+                                secondnumberTemp = secondnumber;
+                                i = userResponse.Length;
+                            }
+                        }
+                        string replacementOne = linesOfText[firstnumberTemp - 1];
+                        string replacementTwo = linesOfText[secondnumberTemp - 1];
+                        linesOfText[secondnumberTemp - 1] = replacementOne;
+                        linesOfText[firstnumberTemp - 1] = replacementTwo;
+                    }
+                    catch(Exception ex)
+                    {
+                        Console.WriteLine(ex.ToString());
+                    }
+                }
+                break;
+            default:
                         break;
                 }
             } while (userResponse.Length > 0);
