@@ -4,8 +4,8 @@ linesOfText[0] = "Welcome to the timewarp of programs!";
 linesOfText[1] = "Applications like this were used in in the 1980s.";
 linesOfText[2] = "I can't wait for User Interfaces to be invented.";
 linesOfText[3] = "Then I can do much more complicated things";
-bool exit = false;
-string userResponse = Console.ReadLine();
+string userResponse;
+userResponse = Console.ReadLine();
 switch (userResponse)
 {
     case ("I"):
@@ -23,4 +23,3 @@ switch (userResponse)
     default:
         break;
 }
-Console.ReadLine();
