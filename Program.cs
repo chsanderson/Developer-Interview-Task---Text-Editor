@@ -21,118 +21,123 @@ try
         switch (userResponse.Substring(0, 1))
         {
             case ("I"):
-                                bool newLine = false;
-                                try
-                                {
-                                    int newResponse;
-                                    try
-                                    {
-                                        try
-                                        {
-                                            newResponse = Int32.Parse(userResponse.Substring(1, 4));
-                                            newLine = true;
-                                            if (userResponse.Length > 5)
-                                            {
-                                                responseTemp = userResponse.Substring(5).Trim();
-                                            }
-                                            else
-                                            {
-                                                responseTemp = " ";
-                                            }
-                                        }
-                                        catch (Exception ex)
-                                        {
-                                            newResponse = Int32.Parse(userResponse.Substring(1, 3));
-                                            newLine = true;
-                                            if (userResponse.Length > 4)
-                                            {
-                                                responseTemp = userResponse.Substring(4).Trim();
-                                            }
-                                            else
-                                            {
-                                                responseTemp = " ";
-                                            }
-                                        }
-                                    }
-                                    catch (Exception ex)
-                                    {
-                                        try
-                                        {
-                                            newResponse = Int32.Parse(userResponse.Substring(1, 2));
-                                            newLine = true;
-                                            if (userResponse.Length > 3)
-                                            {
-                                                responseTemp = userResponse.Substring(3).Trim();
-                                            }
-                                            else
-                                            {
-                                                responseTemp = " ";
-                                            }
-                                        }
-                                        catch (Exception x)
-                                        {
-                                            newResponse = Int32.Parse(userResponse.Substring(1, 1));
-                                            newLine = true;
-                                            if (userResponse.Length > 2)
-                                            {
-                                                responseTemp = userResponse.Substring(2);
-                                            }
-                                            else
-                                            {
-                                                responseTemp = " ";
-                                            }
-
-                                        }
-                                    }
-                    int tempI = 0;
-                                    if (newLine == true)
-                                    {
-                        int lines = newResponse - linesOfText.Length;
-                                        addNewLine = lines;
-                                        temp = new string[lines + linesOfText.Length];
-                        if (newResponse > linesOfText.Length)
+                if (userResponse.Length > 1)
+                {
+                    bool newLine = false;
+                    try
+                    {
+                        int newResponse;
+                        try
                         {
-                            for (int i = 0; i < (linesOfText.Length - 1); i++)
+                            try
                             {
-                                temp[i] = linesOfText[i];
-                                tempI = i;
+                                newResponse = Int32.Parse(userResponse.Substring(1, 4));
+                                newLine = true;
+                                if (userResponse.Length > 5)
+                                {
+                                    responseTemp = userResponse.Substring(5).Trim();
+                                }
+                                else
+                                {
+                                    responseTemp = " ";
+                                }
                             }
-                            temp[newResponse - 1] = responseTemp;
+                            catch (Exception ex)
+                            {
+                                newResponse = Int32.Parse(userResponse.Substring(1, 3));
+                                newLine = true;
+                                if (userResponse.Length > 4)
+                                {
+                                    responseTemp = userResponse.Substring(4).Trim();
+                                }
+                                else
+                                {
+                                    responseTemp = " ";
+                                }
+                            }
+                        }
+                        catch (Exception ex)
+                        {
+                            try
+                            {
+                                newResponse = Int32.Parse(userResponse.Substring(1, 2));
+                                newLine = true;
+                                if (userResponse.Length > 3)
+                                {
+                                    responseTemp = userResponse.Substring(3).Trim();
+                                }
+                                else
+                                {
+                                    responseTemp = " ";
+                                }
+                            }
+                            catch (Exception x)
+                            {
+                                newResponse = Int32.Parse(userResponse.Substring(1, 1));
+                                newLine = true;
+                                if (userResponse.Length > 2)
+                                {
+                                    responseTemp = userResponse.Substring(2);
+                                }
+                                else
+                                {
+                                    responseTemp = " ";
+                                }
+
+                            }
+                        }
+                        int tempI = 0;
+                        if (newLine == true)
+                        {
+                            int lines = newResponse - linesOfText.Length;
+                            addNewLine = lines;
+                            temp = new string[lines + linesOfText.Length];
+                            if (newResponse > linesOfText.Length)
+                            {
+                                for (int i = 0; i < (linesOfText.Length - 1); i++)
+                                {
+                                    temp[i] = linesOfText[i];
+                                    tempI = i;
+                                }
+                                temp[newResponse - 1] = responseTemp;
+                            }
+                            else
+                            {
+                                for (int i = 0; i < (newResponse - 1); i++)
+                                {
+                                    temp[i] = linesOfText[i];
+                                    tempI = i;
+                                }
+                                temp[newResponse - 1] = responseTemp;
+                                for (int i = tempI + 1; i < temp.Length; i++)
+                                {
+                                    temp[i] = linesOfText[i - 1];
+                                }
+                            }
+                            linesOfText = new string[temp.Length];
+                            linesOfText = temp;
                         }
                         else
                         {
-                            for (int i = 0; i < (newResponse - 1); i++)
-                            {
-                                temp[i] = linesOfText[i];
-                                tempI = i;
-                            }
-                            temp[newResponse - 1] = responseTemp;
-                            for (int i = tempI + 1; i < temp.Length; i++)
-                            {
-                                temp[i] = linesOfText[i - 1];
-                            }
+                            Console.WriteLine("Incorrect Command");
                         }
-                        linesOfText = new string[temp.Length];
-                        linesOfText = temp;
-                                    }
-                                    else
-                                    {
-                                        Console.WriteLine("Incorrect Command");
-                                    }
-                                }
-                                catch (Exception ex)
-                {
-                    Console.WriteLine("Number to Big cannot be done");
-                    Console.WriteLine("");//ex.ToString());
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine("Number to Big cannot be done");
+                        Console.WriteLine("");//ex.ToString());
+                    }
                 }
-                                for (int i = 0; i < linesOfText.Length; i++)
-                                {
-                                    Console.WriteLine(linesOfText[i]);
-                                }
+                for (int i = 0; i < linesOfText.Length; i++)
+                {
+                    Console.WriteLine(linesOfText[i]);
+                }
                 break;
 
             case ("i"):
-                newLine = false;
+            if(userResponse.Length >1)
+                { 
+                    bool newLine = false;
                 try
                 {
                     int newResponse;
@@ -235,7 +240,8 @@ try
                 {
                     Console.WriteLine("Number to Big cannot be done");
                     Console.WriteLine("");//ex.ToString());
-                }
+                } }
+
                 break;
                     case ("L"):
                         for (int i = 0; i < linesOfText.Length; i++)
@@ -273,6 +279,35 @@ try
                             Console.WriteLine(linesOfText[i]);
                         }*/ //This for loop displays the lines of text showing that the new line has been added
                         break;
+
+
+
+            case ("d"):
+                int deletedRow = 0;
+                if(userResponse.Length>=2)
+                {
+                    try
+                    {
+                        deletedRow = Int32.Parse(userResponse.Substring(1));
+                    }
+                    catch(Exception ex)
+                    {
+                        Console.WriteLine("Invalid Command! Text is in this command");
+                    }
+                    deletedRow = Int32.Parse(userResponse.Substring(1));
+                }
+                string[] temporaryArray = new string[linesOfText.Length - 1];
+                for(int i = 0; i<deletedRow;i++)
+                {
+                    temporaryArray[i] = linesOfText[i];
+                }
+        for (int i = deletedRow; i<temporaryArray.Length;i++)
+                {
+                    temporaryArray[i] = linesOfText[i + 1];
+                }
+                linesOfText = new string[temporaryArray.Length];
+                linesOfText = temporaryArray;
+                break;
                     default:
                         break;
                 }
