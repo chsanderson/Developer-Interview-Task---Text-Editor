@@ -15,9 +15,10 @@ try
         Console.WriteLine("");
         Console.WriteLine("Enter 'I' or 'L' to view lines of text");
         Console.WriteLine("Enter 'A' or 'a' along with some text to add to the lines of text");
-        Console.WriteLine("Enter 'i' or 'I' with a line number and the text you want to appear in that line and it will appear in that position above the text previously on  that line");
-        Console.WriteLine("Enter 'd' or 'D' with a line number and when submitted the line will be deleted");
+        Console.WriteLine("Enter 'I' or 'i' with a line number and the text you want to appear in that line and it will appear in that position above the text previously on  that line");
+        Console.WriteLine("Enter 'D' or 'd' with a line number and when submitted the line will be deleted");
         Console.WriteLine("Enter 'R' or 'r' with the first line number and then a space and the next line number and to flip them.");
+        Console.WriteLine("Enter 'E' or 'e' with the line number you want to edit and then supply the text you want to change the line number to and submit.");
 
         Console.WriteLine("Waiting for Response:");
         userResponse = Console.ReadLine();
@@ -426,6 +427,75 @@ try
                     {
                         Console.WriteLine(ex.ToString());
                     }
+                }
+                break;
+
+
+
+            case ("E"):
+                if (userResponse.Length > 1)
+                {
+                    int listnumber = 0;
+                    try
+                    {
+                        listnumber = Int32.Parse(userResponse.Substring(1, 4));
+                        linesOfText[listnumber - 1] = userResponse.Substring(5);
+                    }
+                    catch (Exception ex)
+                    {
+                        try
+                        {
+                            listnumber = Int32.Parse(userResponse.Substring(1, 3));
+                            linesOfText[listnumber - 1] = userResponse.Substring(4);
+                        }
+                        catch (Exception e)
+                        {
+                            try
+                            {
+                                listnumber = Int32.Parse(userResponse.Substring(1, 2));
+                                linesOfText[listnumber - 1] = userResponse.Substring(3);
+                            }
+                            catch (Exception x)
+                            {
+                                listnumber = Int32.Parse(userResponse.Substring(1, 1));
+                                linesOfText[listnumber - 1] = userResponse.Substring(2);
+                            }
+                        }
+                    }
+
+                }
+                break;
+            case ("e"):
+                if (userResponse.Length > 1)
+                {
+                    int listnumber = 0;
+                    try
+                    {
+                        listnumber = Int32.Parse(userResponse.Substring(1, 4));
+                        linesOfText[listnumber - 1] = userResponse.Substring(5);
+                    }
+                    catch (Exception ex)
+                    {
+                        try
+                        {
+                            listnumber = Int32.Parse(userResponse.Substring(1, 3));
+                            linesOfText[listnumber - 1] = userResponse.Substring(4);
+                        }
+                        catch (Exception e)
+                        {
+                            try
+                            {
+                                listnumber = Int32.Parse(userResponse.Substring(1, 2));
+                                linesOfText[listnumber - 1] = userResponse.Substring(3);
+                            }
+                            catch (Exception x)
+                            {
+                                listnumber = Int32.Parse(userResponse.Substring(1, 1));
+                                linesOfText[listnumber - 1] = userResponse.Substring(2);
+                            }
+                        }
+                    }
+
                 }
                 break;
             default:
