@@ -5,6 +5,8 @@ linesOfText[1] = "Applications like this were used in in the 1980s.";
 linesOfText[2] = "I can't wait for User Interfaces to be invented.";
 linesOfText[3] = "Then I can do much more complicated things";
 string userResponse;
+string[] temp;
+int addNewLine;
 try
 {
     do
@@ -25,7 +27,36 @@ try
                     Console.WriteLine(linesOfText[i]);
                 }
                 break;
-
+            case ("A"):
+                addNewLine = linesOfText.Length + 1;
+                temp = new string[addNewLine];
+                for(int i= 0; i < (temp.Length -1); i++)
+                {
+                    temp[i] = linesOfText[i];
+                }
+                temp[(addNewLine - 1)] = userResponse.Substring(1).Trim();
+                linesOfText = new string[addNewLine];
+                linesOfText = temp;
+                for (int i = 0; i < addNewLine; i++)
+                {
+                    Console.WriteLine(linesOfText[i]);
+                }
+                break;
+            case ("a"):
+                addNewLine = linesOfText.Length + 1;
+                temp = new string[addNewLine];
+                for (int i = 0; i < (temp.Length - 1); i++)
+                {
+                    temp[i] = linesOfText[i];
+                }
+                temp[(addNewLine - 1)] = userResponse.Substring(1).Trim();
+                linesOfText = new string[addNewLine];
+                linesOfText = temp;
+                for (int i = 0; i < addNewLine; i++)
+                {
+                    Console.WriteLine(linesOfText[i]);
+                }
+                break;
             default:
                 break;
         }
