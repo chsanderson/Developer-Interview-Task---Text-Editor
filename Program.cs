@@ -84,23 +84,36 @@ try
 
                                         }
                                     }
-                    int tempI = 0; ;
+                    int tempI = 0;
                                     if (newLine == true)
                                     {
                         int lines = newResponse - linesOfText.Length;
                                         addNewLine = lines;
-                                        temp = new string[addNewLine];
-                                        for (int i = 0; i < (newResponse - 1); i++)
-                                        {
-                                            temp[i] = linesOfText[i];
-                            tempI = i;
-                                        }
-                                        temp[newResponse - 1] = responseTemp;
-                                        for (int i = tempI + 1; i < temp.Length; i++)
-                                        {
-                                            temp[i] = linesOfText[i - 1];
-                                        }
-                                        linesOfText = temp;
+                                        temp = new string[lines + linesOfText.Length];
+                        if (newResponse > linesOfText.Length)
+                        {
+                            for (int i = 0; i < (linesOfText.Length - 1); i++)
+                            {
+                                temp[i] = linesOfText[i];
+                                tempI = i;
+                            }
+                            temp[newResponse - 1] = responseTemp;
+                        }
+                        else
+                        {
+                            for (int i = 0; i < (newResponse - 1); i++)
+                            {
+                                temp[i] = linesOfText[i];
+                                tempI = i;
+                            }
+                            temp[newResponse - 1] = responseTemp;
+                            for (int i = tempI + 1; i < temp.Length; i++)
+                            {
+                                temp[i] = linesOfText[i - 1];
+                            }
+                        }
+                        linesOfText = new string[temp.Length];
+                        linesOfText = temp;
                                     }
                                     else
                                     {
@@ -119,7 +132,7 @@ try
                 break;
 
             case ("i"):
-                 newLine = false;
+                newLine = false;
                 try
                 {
                     int newResponse;
@@ -182,22 +195,35 @@ try
 
                         }
                     }
-                        int tempI = 0; ;
-                        if (newLine == true)
+                    int tempI = 0;
+                    if (newLine == true)
+                    {
+                        int lines = newResponse - linesOfText.Length;
+                        addNewLine = lines;
+                        temp = new string[lines + linesOfText.Length];
+                        if (newResponse > linesOfText.Length)
                         {
-                            int lines = newResponse - linesOfText.Length;
-                            addNewLine = lines;
-                            temp = new string[addNewLine];
-                        for (int i = 0; i < (newResponse - 1); i++)
-                        {
-                            temp[i] = linesOfText[i];
-                            tempI = i;
+                            for (int i = 0; i < (linesOfText.Length - 1); i++)
+                            {
+                                temp[i] = linesOfText[i];
+                                tempI = i;
+                            }
+                            temp[newResponse - 1] = responseTemp;
                         }
-                                temp[newResponse - 1] = responseTemp;
-                        for (int i = tempI + 1; i < temp.Length; i++)
+                        else
                         {
-                            temp[i] = linesOfText[i - 1];
+                            for (int i = 0; i < (newResponse - 1); i++)
+                            {
+                                temp[i] = linesOfText[i];
+                                tempI = i;
+                            }
+                            temp[newResponse - 1] = responseTemp;
+                            for (int i = tempI + 1; i < temp.Length; i++)
+                            {
+                                temp[i] = linesOfText[i - 1];
+                            }
                         }
+                        linesOfText = new string[temp.Length];
                         linesOfText = temp;
                     }
                     else
@@ -207,7 +233,6 @@ try
                 }
                 catch (Exception ex)
                 {
-
                     Console.WriteLine("Number to Big cannot be done");
                     Console.WriteLine("");//ex.ToString());
                 }
