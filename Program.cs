@@ -11,6 +11,8 @@ try
 {
     do
     {
+        Console.WriteLine("Enter 'I' or 'L' to view lines of text");
+        Console.WriteLine("Waiting for Response:");
         userResponse = Console.ReadLine();
         switch (userResponse.Substring(0, 1))
         {
@@ -20,34 +22,11 @@ try
                     Console.WriteLine(linesOfText[i]);
                 }
                 break;
-
             case ("L"):
                 for (int i = 0; i < linesOfText.Length; i++)
                 {
                     Console.WriteLine(linesOfText[i]);
                 }
-                break;
-            case ("A"):
-                addNewLine = linesOfText.Length + 1;
-                temp = new string[addNewLine];
-                for(int i= 0; i < (temp.Length -1); i++)
-                {
-                    temp[i] = linesOfText[i];
-                }
-                temp[(addNewLine - 1)] = userResponse.Substring(1).Trim();
-                linesOfText = new string[addNewLine];
-                linesOfText = temp;
-                break;
-            case ("a"):
-                addNewLine = linesOfText.Length + 1;
-                temp = new string[addNewLine];
-                for (int i = 0; i < (temp.Length - 1); i++)
-                {
-                    temp[i] = linesOfText[i];
-                }
-                temp[(addNewLine - 1)] = userResponse.Substring(1).Trim();
-                linesOfText = new string[addNewLine];
-                linesOfText = temp;
                 break;
             default:
                 break;
