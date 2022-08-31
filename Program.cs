@@ -5,21 +5,35 @@ linesOfText[1] = "Applications like this were used in in the 1980s.";
 linesOfText[2] = "I can't wait for User Interfaces to be invented.";
 linesOfText[3] = "Then I can do much more complicated things";
 string userResponse;
-userResponse = Console.ReadLine();
-switch (userResponse)
+int addNewLine;
+string[] temp;
+try
 {
-    case ("I"):
-        for (int i = 0; i < linesOfText.Length; i++)
+    do
+    {
+        userResponse = Console.ReadLine();
+        switch (userResponse.Substring(0, 1))
         {
-            Console.WriteLine(linesOfText[i]);
+            case ("I"):
+                for (int i = 0; i < linesOfText.Length; i++)
+                {
+                    Console.WriteLine(linesOfText[i]);
+                }
+                break;
+
+            case ("L"):
+                for (int i = 0; i < linesOfText.Length; i++)
+                {
+                    Console.WriteLine(linesOfText[i]);
+                }
+                break;
+
+            default:
+                break;
         }
-        break;
-    case ("L"):
-        for (int i = 0; i < linesOfText.Length; i++)
-        {
-            Console.WriteLine(linesOfText[i]);
-        }
-        break;
-    default:
-        break;
+    } while (userResponse.Length > 0);
+}
+catch (Exception ex)
+{
+    //Console.WriteLine(ex.ToString());
 }
