@@ -16,6 +16,8 @@ try
         Console.WriteLine("Enter 'I' or 'L' to view lines of text");
         Console.WriteLine("Enter 'A' or 'a' along with some text to add to the lines of text");
         Console.WriteLine("Enter 'i' or 'I' with a line number and the text you want to appear in that line and it will appear in that position above the text previously on  that line");
+        Console.WriteLine("Enter 'd' or 'I' with a line number and when submitted the line will be deleted");
+
         Console.WriteLine("Waiting for Response:");
         userResponse = Console.ReadLine();
         switch (userResponse.Substring(0, 1))
@@ -307,6 +309,14 @@ try
                 }
                 linesOfText = new string[temporaryArray.Length];
                 linesOfText = temporaryArray;
+                break;
+
+            case ('R'):
+                if(userResponse.Length > 1)
+                {
+                    
+                }
+                else if()
                 break;
                     default:
                         break;
