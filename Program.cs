@@ -37,10 +37,6 @@ try
                 temp[(addNewLine - 1)] = userResponse.Substring(1).Trim();
                 linesOfText = new string[addNewLine];
                 linesOfText = temp;
-                for (int i = 0; i < addNewLine; i++)
-                {
-                    Console.WriteLine(linesOfText[i]);
-                }
                 break;
             case ("a"):
                 addNewLine = linesOfText.Length + 1;
@@ -52,10 +48,6 @@ try
                 temp[(addNewLine - 1)] = userResponse.Substring(1).Trim();
                 linesOfText = new string[addNewLine];
                 linesOfText = temp;
-                for (int i = 0; i < addNewLine; i++)
-                {
-                    Console.WriteLine(linesOfText[i]);
-                }
                 break;
             default:
                 break;
