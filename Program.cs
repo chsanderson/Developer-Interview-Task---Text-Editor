@@ -1,4 +1,11 @@
 ﻿// See https://aka.ms/new-console-template for more information
+
+//Christopher Sanderson
+//31/08/2022
+using System;
+using System.IO;
+using static System.Net.Mime.MediaTypeNames;
+
 string[] linesOfText = new string[4];
 linesOfText[0] = "Welcome to the timewarp of programs!";
 linesOfText[1] = "Applications like this were used in in the 1980s.";
@@ -14,11 +21,13 @@ try
     {
         Console.WriteLine("");
         Console.WriteLine("Enter 'I' or 'L' to view lines of text");
-        Console.WriteLine("Enter 'A' or 'a' along with some text to add to the lines of text");
+        Console.WriteLine("Enter 'A' or 'a' along with some text to add a new line of text");
         Console.WriteLine("Enter 'I' or 'i' with a line number and the text you want to appear in that line and it will appear in that position above the text previously on  that line");
         Console.WriteLine("Enter 'D' or 'd' with a line number and when submitted the line will be deleted");
         Console.WriteLine("Enter 'R' or 'r' with the first line number and then a space and the next line number and to flip them.");
         Console.WriteLine("Enter 'E' or 'e' with the line number you want to edit and then supply the text you want to change the line number to and submit.");
+        Console.WriteLine("Enter 'E' or 'e' with the line number you want to edit and then supply the text you want to change the line number to and submit.");
+        Console.WriteLine("Enter 'S' to save the lines of text to a file");
 
         Console.WriteLine("Waiting for Response:");
         userResponse = Console.ReadLine();
@@ -132,10 +141,30 @@ try
                         Console.WriteLine("");//ex.ToString());
                     }
                 }
+
+                String line;
+                try
+                {
+                    StreamReader streamReader = new StreamReader("C:\\file.txt");
+                    line = streamReader.ReadLine();
+                    do
+                    {
+
+                        Console.WriteLine(line);
+                        line = streamReader.ReadLine();
+                    } while (line != null);
+                    streamReader.Close();
+                    Console.ReadLine();
+                }
+                catch(Exception ex)
+                {
+                    Console.WriteLine(ex.ToString());
+                }
+                /*
                 for (int i = 0; i < linesOfText.Length; i++)
                 {
                     Console.WriteLine(linesOfText[i]);
-                }
+                }*/
                 break;
 
             case ("i"):
@@ -248,10 +277,20 @@ try
 
                 break;
                     case ("L"):
-                        for (int i = 0; i < linesOfText.Length; i++)
+                String loadLine;
+                StreamReader newStreamReader = new StreamReader("File.txt");
+                loadLine = newStreamReader.ReadLine();
+                do
+                {
+                    Console.WriteLine(loadLine);
+                    loadLine = newStreamReader.ReadLine();
+                } while (loadLine != null);
+                newStreamReader.Close();
+
+                       /* for (int i = 0; i < linesOfText.Length; i++)
                         {
                             Console.WriteLine(linesOfText[i]);
-                        }
+                        }*/
                         break;
                     case ("A"):
                         addNewLine = linesOfText.Length + 1;
@@ -498,6 +537,16 @@ try
 
                 }
                 break;
+
+            case ("S"):
+                StreamWriter streamWriter = new StreamWriter("C://file.txt");
+                foreach(var item in linesOfText)
+                {
+                    streamWriter.WriteLine(item);
+                }
+                streamWriter.Close();
+                break;
+
             default:
                         break;
                 }
