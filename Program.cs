@@ -20,7 +20,8 @@ try
     do
     {
         Console.WriteLine("");
-        Console.WriteLine("Enter 'I' or 'L' to view lines of text");
+        Console.WriteLine("Enter 'L' to Load lines of text from file");
+        Console.WriteLine("Enter 'I' to view lines of text");
         Console.WriteLine("Enter 'A' or 'a' along with some text to add a new line of text");
         Console.WriteLine("Enter 'I' or 'i' with a line number and the text you want to appear in that line and it will appear in that position above the text previously on  that line");
         Console.WriteLine("Enter 'D' or 'd' with a line number and when submitted the line will be deleted");
@@ -100,11 +101,11 @@ try
                             }
                         }
                         int tempI = 0;
-                        if (newLine == true)
+                        if (newLine == true && linesOfText.Length >= 1)
                         {
-                            int lines = newResponse - linesOfText.Length;
-                            addNewLine = lines;
-                            temp = new string[lines + linesOfText.Length];
+                                int lines = newResponse - linesOfText.Length;
+                                addNewLine = lines;
+                                temp = new string[lines + linesOfText.Length];
                             if (newResponse > linesOfText.Length)
                             {
                                 for (int i = 0; i < (linesOfText.Length - 1); i++)
@@ -143,7 +144,7 @@ try
                 }
 
                 String line;
-                try
+                /*try
                 {
                     StreamReader streamReader = new StreamReader("C:\\Users\\ChSan\\source\\repos\\Developer Interview Task - Text Editor\\file.txt");
                     line = streamReader.ReadLine();
@@ -159,16 +160,12 @@ try
                 catch(Exception ex)
                 {
                     Console.WriteLine(ex.ToString());
-                }
-                finally
-                {
-                    Console.WriteLine("Finally");
-                }
-                /*
+                }*/
+                
                 for (int i = 0; i < linesOfText.Length; i++)
                 {
                     Console.WriteLine(linesOfText[i]);
-                }*/
+                }
                 break;
 
             case ("i"):
@@ -286,20 +283,23 @@ try
                 int count = 0 ;
                 while (line != null)
                 {
-                    count++;
+                    linesOfText[count] = line;
+                    if(count >=4)
+                    {
+                        temp = new string[count + 1];
+                        for(int i = 0; i <= count;i++)
+                        {
+                            temp[i] = linesOfText[i];
+                        }
+                        linesOfText = temp;
+                    }
+                    linesOfText[count] = line;
                     Console.WriteLine(line);
                     line = newStreamReader.ReadLine();
-                }
-
-                linesOfText = new string[count];
-                line = newStreamReader.ReadLine();
-                while(line != null)
-                {
-                    linesOfText[count - 1] = line;
-                    line = newStreamReader.ReadLine();
+                    count++;
                 }
                 newStreamReader.Close();
-                Console.ReadLine();
+                //Console.ReadLine();
 
                 /* for (int i = 0; i < linesOfText.Length; i++)
                  {
