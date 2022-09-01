@@ -7,10 +7,10 @@ using System.IO;
 using static System.Net.Mime.MediaTypeNames;
 
 string[] linesOfText = new string[4];
-linesOfText[0] = "Welcome to the timewarp of programs!";
-linesOfText[1] = "Applications like this were used in in the 1980s.";
-linesOfText[2] = "I can't wait for User Interfaces to be invented.";
-linesOfText[3] = "Then I can do much more complicated things";
+//linesOfText[0] = "Welcome to the timewarp of programs!";
+//linesOfText[1] = "Applications like this were used in in the 1980s.";
+//linesOfText[2] = "I can't wait for User Interfaces to be invented.";
+//linesOfText[3] = "Then I can do much more complicated things";
 string userResponse;
 string[] temp;
 int addNewLine;
@@ -145,20 +145,24 @@ try
                 String line;
                 try
                 {
-                    StreamReader streamReader = new StreamReader("C:\\file.txt");
+                    StreamReader streamReader = new StreamReader("C:\\Users\\ChSan\\source\\repos\\Developer Interview Task - Text Editor\\file.txt");
                     line = streamReader.ReadLine();
-                    do
+                    while (line != null)
                     {
-
                         Console.WriteLine(line);
                         line = streamReader.ReadLine();
-                    } while (line != null);
+                    }
                     streamReader.Close();
                     Console.ReadLine();
+                
                 }
                 catch(Exception ex)
                 {
                     Console.WriteLine(ex.ToString());
+                }
+                finally
+                {
+                    Console.WriteLine("Finally");
                 }
                 /*
                 for (int i = 0; i < linesOfText.Length; i++)
@@ -277,21 +281,31 @@ try
 
                 break;
                     case ("L"):
-                String loadLine;
-                StreamReader newStreamReader = new StreamReader("File.txt");
-                loadLine = newStreamReader.ReadLine();
-                do
+                StreamReader newStreamReader = new StreamReader("C:\\Users\\ChSan\\source\\repos\\Developer Interview Task - Text Editor\\file.txt");
+                line = newStreamReader.ReadLine();
+                int count = 0 ;
+                while (line != null)
                 {
-                    Console.WriteLine(loadLine);
-                    loadLine = newStreamReader.ReadLine();
-                } while (loadLine != null);
-                newStreamReader.Close();
+                    count++;
+                    Console.WriteLine(line);
+                    line = newStreamReader.ReadLine();
+                }
 
-                       /* for (int i = 0; i < linesOfText.Length; i++)
-                        {
-                            Console.WriteLine(linesOfText[i]);
-                        }*/
-                        break;
+                linesOfText = new string[count];
+                line = newStreamReader.ReadLine();
+                while(line != null)
+                {
+                    linesOfText[count - 1] = line;
+                    line = newStreamReader.ReadLine();
+                }
+                newStreamReader.Close();
+                Console.ReadLine();
+
+                /* for (int i = 0; i < linesOfText.Length; i++)
+                 {
+                     Console.WriteLine(linesOfText[i]);
+                 }*/
+                break;
                     case ("A"):
                         addNewLine = linesOfText.Length + 1;
                         temp = new string[addNewLine];
@@ -534,15 +548,14 @@ try
                             }
                         }
                     }
-
                 }
                 break;
 
             case ("S"):
-                StreamWriter streamWriter = new StreamWriter("C://file.txt");
-                foreach(var item in linesOfText)
+                StreamWriter streamWriter = new StreamWriter("C:\\Users\\ChSan\\source\\repos\\Developer Interview Task - Text Editor\\file.txt");
+                for (int i = 0; i < linesOfText.Length; i++)
                 {
-                    streamWriter.WriteLine(item);
+                    streamWriter.WriteLine(linesOfText[i]);
                 }
                 streamWriter.Close();
                 break;
