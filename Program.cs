@@ -89,11 +89,11 @@ try
                 //this if case will be carried out if the user has added any charcters after I which will then be inserted into the array if they have given a number of line they want insert it to 
                 if (userResponse.Length > 1)
                 {
-                    bool newLine = false;
+                    bool newLine = false;//this checks if there should be a new entry or not
                     try
                     {
                         int newResponse;
-                        //these check if there has been any numbers given after I
+                        //these try catches check if there has been any numbers given upto 4 characters after the character 'I'
                         try
                         {
                             try
@@ -155,11 +155,12 @@ try
                         }
                         //this sorts the previous array into another new version of the array
                         int tempI = 0;
-                        if (newLine == true && linesOfText.Length >= 1)
+                        if (newLine == true && linesOfText.Length >= 1) //there should be a new line added and the text given has more than 1 characters it can be inserted
                         {
                             int lines = newResponse - linesOfText.Length;
                             addNewLine = lines;
                             temp = new string[lines + linesOfText.Length];
+                            //if the conditions have been met and the line number is larger than what is currently in the array it adds the line in in the else statement and if it is within it will be carried out in the if statement
                             if (newResponse > linesOfText.Length)
                             {
                                 for (int i = 0; i < (linesOfText.Length - 1); i++)
@@ -192,6 +193,7 @@ try
                     }
                     catch (Exception ex)
                     {
+                        //this is shown if the number is too large for what can be done;
                         Console.WriteLine("Number to Big cannot be done");
                         Console.WriteLine("");//ex.ToString());
                         break;
@@ -204,6 +206,7 @@ try
                     Console.WriteLine(linesOfText[i]);
                 }
                 break;
+
                 //Requirement 3
             case ("i"):
                 //this if case will be carried out if the user has added any charcters after I which will then be inserted into the array if they have given a number of line they want insert it to 
@@ -214,7 +217,7 @@ try
                 {
                     int newResponse;
 
-                        //these check if there has been any numbers given after I
+                        //these try catches check if there has been any numbers given upto 4 characters after the character 'I'
                         try
                         {
                         try
@@ -276,7 +279,7 @@ try
                     }
                     int tempI = 0;
 
-                        //this sorts the old array into a new version of the same array
+                        //this sorts the old array into a new version of the same array using a temporary array
                     if (newLine == true)
                     {
                         int lines = newResponse - linesOfText.Length;
@@ -314,6 +317,7 @@ try
                 }
                 catch (Exception ex)
                 {
+                        //this is displayed if the line number they have entered is too big for what is allowed for the current array
                     Console.WriteLine("Number to Big cannot be done");
                         break;
                     Console.WriteLine("");//ex.ToString());
@@ -321,10 +325,11 @@ try
                 Console.WriteLine("Insert has been completed");
                 break;
 
+
                 //Requirement 1 + 7
                     case ("L"): 
                 //loading the the text file into a new array and saving the previous array to that file
-                if(fileName == "")
+                if(fileName == "")//this checks if there is a file name already asscoiated in the loop if not it will not save the current lines of text
                 {
                     try
                     {
@@ -340,7 +345,7 @@ try
                 else
                 {
                     fileName = fileName;
-                    //this saves the previous list to the previous text file being used
+                    //this saves the previous list to the previous text file being used before a new one is created
                     string pathString3;
                     if (userResponse.Trim().Length > 1)
                     {
@@ -370,7 +375,7 @@ try
 
                 }
 
-
+                //this adds the new lines of text from the file that is now wanting to be displayed on the console
                 StreamReader newStreamReader;
                 string pathString2;
                 linesOfText = new string[1];
@@ -381,6 +386,7 @@ try
                     pathString2 = System.IO.Path.Combine((folderName));
                     pathString2 = System.IO.Path.Combine((folderName), fileName);
 
+                    //this checks if the file already exists or not and whether the file needs to be created or not
                     if (!System.IO.File.Exists(pathString2))
                     {
                         using (System.IO.FileStream fs = System.IO.File.Create(pathString2));
@@ -395,6 +401,7 @@ try
                      newStreamReader = new StreamReader(pathString);
                     pathString2 = pathString;
                 }
+                //this emptys the old array and adds new values to the linesOftext array from the new file that has been loaded up
                 line = newStreamReader.ReadLine();
                 int count = 0 ;
                 while (line != null)
@@ -431,6 +438,7 @@ try
                 {
                     linesOfText[0] = userResponse.Substring(1);
                 }
+                //this creates a new length of array and through the array being added to a temporary array called temp we can reset the size of the current linesOfText array which we can then add back into this array  
                 addNewLine = linesOfText.Length + 1;
                 temp = new string[addNewLine];
                 for (int i = 0; i < (temp.Length - 1); i++)
@@ -452,8 +460,9 @@ try
                         if (linesOfText.Length == 1 && linesOfText[0] == "")
                         {
                             linesOfText[0] = userResponse.Substring(1);
-                        }
-                        addNewLine = linesOfText.Length + 1;
+                }
+                //this creates a new length of array and through the array being added to a temporary array called temp we can reset the size of the current linesOfText array which we can then add back into this array  
+                addNewLine = linesOfText.Length + 1;
                         temp = new string[addNewLine];
                         for (int i = 0; i < (temp.Length - 1); i++)
                         {
@@ -492,6 +501,7 @@ try
                     }
                     deletedRow = Int32.Parse(userResponse.Substring(1));
                 }
+                //we create a new array with a smaller size by passing the lines into an array called temporaryArray leaving out the row which is no longer required and then passed back to the linesOfText array 
                 string[] temporaryArray = new string[linesOfText.Length - 1];
                 for (int i = 0; i < deletedRow; i++)
                 {
@@ -503,6 +513,7 @@ try
                 }
                 linesOfText = new string[temporaryArray.Length];
                 linesOfText = temporaryArray;
+                //this confirms the row has been removed from the array
                 Console.WriteLine("Row has been deleted");
                 Console.WriteLine("");
                 break;
@@ -527,7 +538,8 @@ try
                     }
                     deletedRow = Int32.Parse(userResponse.Substring(1));
                 }
-                    temporaryArray = new string[linesOfText.Length - 1];
+                //we create a new array with a smaller size by passing the lines into an array called temporaryArray leaving out the row which is no longer required and then passed back to the linesOfText array 
+                temporaryArray = new string[linesOfText.Length - 1];
                 for (int i = 0; i < deletedRow; i++)
                 {
                     temporaryArray[i] = linesOfText[i];
@@ -538,6 +550,7 @@ try
                 }
                 linesOfText = new string[temporaryArray.Length];
                 linesOfText = temporaryArray;
+                //this confirms the row has been removed from the array
                 Console.WriteLine("Row has been deleted");
                 Console.WriteLine("");
                 break;
@@ -551,6 +564,7 @@ try
                     int trimNumber = 0;
                     try
                     {
+                        //this try catch takes 2 valid numbers that are related to the length of the array and then swaps them around using a temporary array
                         for (int i = 1; i < userResponse.Length - 1; i++)
                         {
                             int firstnumber = 0;
@@ -600,6 +614,7 @@ try
                         Console.WriteLine(ex.ToString());
                     }
                 }
+                //this confirms the array has had the relevant lines swapped around
                 Console.WriteLine("Lines have been swapped");
                 Console.WriteLine("");
                 break;
@@ -610,6 +625,8 @@ try
                     int firstnumberTemp = 0;
                     int secondnumberTemp = 0;
                     int trimNumber = 0;
+
+                    //this try catch takes 2 valid numbers that are related to the length of the array and then swaps them around using a temporary array
                     try
                     {
                         for (int i = 1; i < userResponse.Length - 1 ; i++)
@@ -661,6 +678,8 @@ try
                         Console.WriteLine(ex.ToString());
                     }
                 }
+
+                //this confirms the array has had the relevant lines swapped around
                 Console.WriteLine("Lines have been swapped");
                 Console.WriteLine("");
                 break;
@@ -671,6 +690,9 @@ try
                 if (userResponse.Length > 1)
                 {
                     int listnumber = 0;
+                    //these try catches check to see if a line number has been gave.
+                    //if a line number has been created and there is a message it will then change the line relating to where it is in the array (linenumber - 1)
+                    //if it can't be done a message is displayed on the console relating to what is wrong.
                     try
                     {
                         listnumber = Int32.Parse(userResponse.Substring(1, 4));
@@ -732,15 +754,20 @@ try
                         }
                     }
                 }
+                //this displays a message to confirm the edit has taken place
                 Console.WriteLine("Line has been edited");
                 Console.WriteLine("");
                 break;
+
             case ("e"):
                 //Requirement 6
                 //this allows users to edit the line they specify a number for
                 if (userResponse.Length > 1)
                 {
                     int listnumber = 0;
+                    //these try catches check to see if a line number has been gave.
+                    //if a line number has been created and there is a message it will then change the line relating to where it is in the array (linenumber - 1)
+                    //if it can't be done a message is displayed on the console relating to what is wrong.
                     try
                     {
                         listnumber = Int32.Parse(userResponse.Substring(1, 4));
@@ -802,6 +829,7 @@ try
                         }
                     }
                 }
+                //this displays a message on the console to confirm that the edit has been completed
                 Console.WriteLine("Line has been edited");
                 Console.WriteLine("");
                 break;
@@ -810,6 +838,7 @@ try
                 //this saves the files to the text file they were using
                 if (fileName == "")
                 {
+                    //this checks whether there is a filename already loaded up and whether these lines of text can be saved to a file or not
                     if (fileName == "")
                     {
                         try
@@ -828,6 +857,7 @@ try
                     }
                 }
                 else {
+                    //this then sets up the file destination of where it should be saved to
                     string pathString4;
                     if (userResponse.Trim().Length > 1)
                     {
@@ -835,6 +865,7 @@ try
                         pathString4 = System.IO.Path.Combine(folderName, "Text Editor Storage");
                         pathString4 = System.IO.Path.Combine((folderName), fileName);
 
+                        //this checks if the file exists or not then creates it if it has to or not
                         if (!System.IO.File.Exists(pathString4))
                         {
                             using (System.IO.FileStream fs = System.IO.File.Create(pathString4)) ;
@@ -850,22 +881,26 @@ try
                         streamWriter = new StreamWriter(pathString);
                         pathString4 = pathString;
                     }
+                    //this loads each line that is in the array and saving it from the first line lineOfText[0] to and including the value stored in the last element in the array
                     for (int i = 0; i < linesOfText.Length; i++)
                     {
                         streamWriter.WriteLine(linesOfText[i]);
                     }
                     streamWriter.Close();
                 }
+                //this confirms by displaying a message that the lines of text have been saved to a text file going by the same name as what has been given through the users input.
                 Console.WriteLine("Lines have been saved to the file you have been using");
                 Console.WriteLine("");
                 break;
 
+                //this is the default case in the array which means that if any other input is given it is to do nothing and go back to the start again
             default:
                         break;
                 }
-            } while (userResponse.Length > 0);
+            } while (userResponse.Length > 0);//this makes sure that the loop goes on until the user decides to close the console application
         }
         catch (Exception ex)
         {
+    //this catch would display any errors that occur during after setting up the file storage for the console application.
             //Console.WriteLine(ex.ToString());
         }
