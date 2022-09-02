@@ -2,9 +2,12 @@
 
 //Christopher Sanderson
 //31/08/2022
+
+
 using System;
 using System.IO;
 using static System.Net.Mime.MediaTypeNames;
+
 
 //array examples
 //linesOfText[0] = "Welcome to the timewarp of programs!";
