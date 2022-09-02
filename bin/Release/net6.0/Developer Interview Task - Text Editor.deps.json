@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v6.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v6.0": {
+      "Developer Interview Task - Text Editor/1.0.0": {
+        "runtime": {
+          "Developer Interview Task - Text Editor.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Developer Interview Task - Text Editor/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

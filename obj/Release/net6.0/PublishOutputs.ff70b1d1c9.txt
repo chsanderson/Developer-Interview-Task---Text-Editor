@@ -1,0 +1,5 @@
+C:\Users\ChSan\source\repos\Developer Interview Task - Text Editor\bin\Release\net6.0\publish\Developer Interview Task - Text Editor.exe
+C:\Users\ChSan\source\repos\Developer Interview Task - Text Editor\bin\Release\net6.0\publish\Developer Interview Task - Text Editor.dll
+C:\Users\ChSan\source\repos\Developer Interview Task - Text Editor\bin\Release\net6.0\publish\Developer Interview Task - Text Editor.deps.json
+C:\Users\ChSan\source\repos\Developer Interview Task - Text Editor\bin\Release\net6.0\publish\Developer Interview Task - Text Editor.runtimeconfig.json
+C:\Users\ChSan\source\repos\Developer Interview Task - Text Editor\bin\Release\net6.0\publish\Developer Interview Task - Text Editor.pdb

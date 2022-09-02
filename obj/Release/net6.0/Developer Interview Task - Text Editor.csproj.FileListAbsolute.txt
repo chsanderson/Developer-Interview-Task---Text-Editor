@@ -1,0 +1,15 @@
+C:\Users\ChSan\source\repos\Developer Interview Task - Text Editor\bin\Release\net6.0\Developer Interview Task - Text Editor.exe
+C:\Users\ChSan\source\repos\Developer Interview Task - Text Editor\bin\Release\net6.0\Developer Interview Task - Text Editor.deps.json
+C:\Users\ChSan\source\repos\Developer Interview Task - Text Editor\bin\Release\net6.0\Developer Interview Task - Text Editor.runtimeconfig.json
+C:\Users\ChSan\source\repos\Developer Interview Task - Text Editor\bin\Release\net6.0\Developer Interview Task - Text Editor.dll
+C:\Users\ChSan\source\repos\Developer Interview Task - Text Editor\bin\Release\net6.0\Developer Interview Task - Text Editor.pdb
+C:\Users\ChSan\source\repos\Developer Interview Task - Text Editor\obj\Release\net6.0\Developer Interview Task - Text Editor.csproj.AssemblyReference.cache
+C:\Users\ChSan\source\repos\Developer Interview Task - Text Editor\obj\Release\net6.0\Developer Interview Task - Text Editor.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\ChSan\source\repos\Developer Interview Task - Text Editor\obj\Release\net6.0\Developer Interview Task - Text Editor.AssemblyInfoInputs.cache
+C:\Users\ChSan\source\repos\Developer Interview Task - Text Editor\obj\Release\net6.0\Developer Interview Task - Text Editor.AssemblyInfo.cs
+C:\Users\ChSan\source\repos\Developer Interview Task - Text Editor\obj\Release\net6.0\Developer Interview Task - Text Editor.csproj.CoreCompileInputs.cache
+C:\Users\ChSan\source\repos\Developer Interview Task - Text Editor\obj\Release\net6.0\Developer Interview Task - Text Editor.dll
+C:\Users\ChSan\source\repos\Developer Interview Task - Text Editor\obj\Release\net6.0\refint\Developer Interview Task - Text Editor.dll
+C:\Users\ChSan\source\repos\Developer Interview Task - Text Editor\obj\Release\net6.0\Developer Interview Task - Text Editor.pdb
+C:\Users\ChSan\source\repos\Developer Interview Task - Text Editor\obj\Release\net6.0\Developer Interview Task - Text Editor.genruntimeconfig.cache
+C:\Users\ChSan\source\repos\Developer Interview Task - Text Editor\obj\Release\net6.0\ref\Developer Interview Task - Text Editor.dll
