@@ -6,14 +6,15 @@ using System;
 using System.IO;
 using static System.Net.Mime.MediaTypeNames;
 
-
-//Initializing the global variables
-string[] linesOfText = new string[1];//string array used to keep record of the lines of text
+//array examples
 //linesOfText[0] = "Welcome to the timewarp of programs!";
 //linesOfText[1] = "Applications like this were used in in the 1980s.";
 //linesOfText[2] = "I can't wait for User Interfaces to be invented.";
 //linesOfText[3] = "Then I can do much more complicated things";
 
+
+//Initializing the global variables
+string[] linesOfText = new string[1];//string array used to keep record of the lines of text
 String line;// this will be used to read tread the current line that is being added from the text file you have selected
 string userResponse;//this is the global variable that will store the users input
 string[] temp;//temporary array that will help to edit the order of the lines
