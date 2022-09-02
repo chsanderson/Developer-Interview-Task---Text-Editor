@@ -68,6 +68,7 @@ try
     {
         //User Instructions
         Console.WriteLine("");
+        Console.WriteLine("Text files will be stored in 'C:\\ChristopherSanderson-TextEditor'");
         Console.WriteLine("Enter 'L' to Load lines of text from file that you specify before you submit the command. otherwise it will load file.txt or if you are currently using it the file you have just used");
         Console.WriteLine("Enter 'I' to view lines of text");
         Console.WriteLine("Enter 'A' or 'a' along with some text to add a new line of text");
